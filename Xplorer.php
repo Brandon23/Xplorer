@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>PHP File Manager</title>
+		<title>PHP Xplorer</title>
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
@@ -23,7 +23,6 @@
 								if($_GET['function'] == "mkdir") {
 									if(isset($_GET['name'])) {
 										mkdir($dir_path . "/" . $_GET['name'], 0700);
-										echo $dir_path . "/" . $_GET['name'];
 									}
 									else{
 										mkdir($dir_path . "New Folder");
@@ -81,7 +80,7 @@
 						}
 						else {
 							if (is_file($dir_path . "/" . $entry) && !in_array($entry, array('.','..'))) {
-								//set href to an id that will activate a jquery modal to edit the file.
+								//set href to an id that will activate a bootstrap modal to edit the file.
 								//add syntax highlighting for .php , .cpp, and .java files(they're most common)
 								echo "<tr style='cursor: pointer;' onclick=\"window.location='?directory=". $dir_path . "/" . $entry ."'\"><td><center><span class='glyphicon glyphicon-file'></span></center></td><td>" . $entry . "</td><td>" . filesize($dir_path.$entry) / 1024 . "KB</td></tr>";
 							}						
